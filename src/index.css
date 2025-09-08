@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --component-bg-color: rgba(21, 21, 23, 0.4);
+}
+body {
+  background: radial-gradient(
+    circle at center,
+    #2a004f 0%,
+    #1a0033 40%,
+    #0a001a 100%
+  );
+  background-attachment: fixed;
+  background-size: cover;
+}
