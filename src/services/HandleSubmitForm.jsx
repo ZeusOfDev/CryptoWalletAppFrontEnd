@@ -1,18 +1,23 @@
-async function handleSubmitForm(e, interceptor) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
-    var route = "/";
-    if (e.target.id === "login") {
-        route = "/login";
-    } else {
-        route = route + e.target.id;
-    }
-    console.log(data);
-    await fetch(`/api/${route}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-};
-export { handleSubmitForm };
+import api from "../utils/Interceptor";
+import { baseAddress } from "../utils/Reusevariable";
+async function handleSubmitForm(e) {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
+  // Build route
+  let route = "/";
+  route += e.target.id;
+  
+  try {
+    const res = await api.post(baseAddress + route, data);
+    console.log("✅ Final response in form handler:", res);
+    return res; // already refined by interceptor
+  } catch (err) {
+    console.error("❌ Final error in form handler:", err);
+    throw err;
+  }
+}
+
+export default handleSubmitForm;

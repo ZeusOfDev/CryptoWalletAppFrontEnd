@@ -1,6 +1,8 @@
 import React from "react";
 import eth_icon from "../assets/singgleethicon.svg";
 import FlowerLogo from "../feature/FlowerLogo";
+import { Outlet } from "react-router-dom";
+
 const NavIcon = () => {
   return (
     <div className="flex items-center justify-center">
@@ -19,7 +21,7 @@ const Header = () => {
     </div>
   );
 };
-const Layout = ({ children }) => {
+const Layout = () => {
   const menuItems = [
     { label: "Dashboard", icon: <NavIcon />, active: true },
     { label: "WithDraw", icon: <NavIcon /> },
@@ -31,9 +33,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <Header />
-      <div className="flex py-2 gap-[1.5%] items-start">
-        <div className="w-75 bg-[var(--component-bg-color)] text-white flex flex-col justify-between pt-12 pb-4 mx-4 rounded-2xl">
+      <div className="min-w-72 w-72 bg-[var(--component-bg-color)] text-white flex flex-col justify-between pt-12 pb-4 mx-4 rounded-2xl fixed top-1/2 -translate-y-1/2">
           <div className="flex flex-col gap-4">
             {menuItems.map((item, index) => (
               <a
@@ -60,7 +60,9 @@ const Layout = ({ children }) => {
             </a>
           </div>
         </div>
-        {children}
+      <Header />
+      <div className="flex py-2 gap-[1.5%] items-center justify-center">
+        <Outlet />
       </div>
       <Footer />
     </div>
