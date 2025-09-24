@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { Send, Download, PlusCircle, Repeat } from "lucide-react";
 
-
+import React from "react";
 function ActivityBar({setters}) {
   function setAllFalse() {
     Object.values(setters).forEach(setter => setter(false));

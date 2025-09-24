@@ -1,8 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import handleSubmitForm from "../services/HandleSubmitForm";
-import ChallengeLayout from "../utils/ChallengeLayout";
 import { useNavigate } from "react-router-dom";
-import  Alert from "../feature/Alert";
 import { useOutletContext } from "react-router-dom";
 export default function Signup() {
   const { setAlerted, setMessage, setType } = useOutletContext();useOutletContext();

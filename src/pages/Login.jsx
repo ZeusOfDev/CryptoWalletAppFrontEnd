@@ -1,15 +1,11 @@
 import handleSubmitForm from "../services/HandleSubmitForm";
-import FlowerLogo from "../feature/FlowerLogo";
-import ChallengeLayout from "../utils/ChallengeLayout";
-import AxiosApi from "../utils/Interceptor";
 import { useNavigate } from "react-router-dom";
-
+import React from "react";
 
 
 export default function Login() {
-
-  return <LoginForm/>;
-}
+  return <LoginForm />;
+};
 function LoginForm() {
   const navigate = useNavigate();
   async function handleLoginForm(e) {

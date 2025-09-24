@@ -24,13 +24,13 @@ var routers = createBrowserRouter([
         if (res.data.redirect) {
           return redirect("/home");
         }
-        if (res.Token) {
-          localStorage.setItem("acccessToken", res.Token);
+        if (res.data.accessToken) {
+          localStorage.setItem("accessToken", res.Token);
+          return redirect("/home");
         }
       } catch (err) {
         return { message: err.message};
       }
-      
     },
     path: "/",
     children: [
@@ -41,6 +41,7 @@ var routers = createBrowserRouter([
   
   {
     element: <Layout />,
+    
     children: [
       {path: "/home",element:<Home />},
       {path: "/user",element: <User />},

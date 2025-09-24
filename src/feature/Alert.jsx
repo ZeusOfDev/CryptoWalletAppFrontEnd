@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-
+import React from "react";
 function Alert({ message, type = "success", duration = 3000 }) {
   const [visible, setVisible] = useState(true);
 
